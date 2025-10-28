@@ -20,10 +20,10 @@ const EduStream = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [currentPage, setCurrentPage] = useState('home');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-const [user, setUser] = useState(null);
-const [cart, setCart] = useState([]);
-const [wishlist, setWishlist] = useState([]);
-const [selectedCourse, setSelectedCourse] = useState(null);
+const [user, setUser] = useState<User | null>(null);
+const [cart, setCart] = useState<Course[]>([]);
+const [wishlist, setWishlist] = useState<Course[]>([]);
+const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 const [showAuthModal, setShowAuthModal] = useState(false);
 
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
