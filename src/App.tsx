@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Course, User } from './types';
-import { courses as initialCourses } from './data/courses';
+import React, { useState } from 'react';
+import { Course, User } from './types'; // Will be the next error if types/index.ts is missing
+import { courses as initialCourses } from './data/courses'; // Will be the next error if data/courses.ts is missing
 
 // Import Pages
 import HomePage from './pages/HomePage';
@@ -178,7 +178,16 @@ const EduStream = () => {
           setCurrentPage={setCurrentPage}
         />;
       default:
-        return <HomePage {...( /* props */ )} />;
+        // Fallback to HomePage, ensure props are passed correctly
+        return <HomePage 
+          courses={courses}
+          darkMode={darkMode}
+          wishlist={wishlist}
+          setCurrentPage={setCurrentPage}
+          setSelectedCourse={setSelectedCourse}
+          toggleWishlist={toggleWishlist}
+          addToCart={addToCart}
+        />;
     }
   };
 
@@ -234,4 +243,4 @@ const EduStream = () => {
   );
 };
 
-export default EduStream;
+export default EduStream; // Renamed to match the component name
